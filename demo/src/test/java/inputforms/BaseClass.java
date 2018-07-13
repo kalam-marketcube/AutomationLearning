@@ -1,10 +1,12 @@
+package inputforms;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class BaseClass {
 
-     WebDriver openSeleniumEasySite() throws InterruptedException {
+    public WebDriver openSeleniumEasySite() throws InterruptedException {
         System.setProperty("webdriver.chrome.driver", "/Users/sshaik02/Downloads/chromedriver");
 
         WebDriver driver = new ChromeDriver();
@@ -21,7 +23,7 @@ public class BaseClass {
         Thread.sleep(2000);
     }
 
-    void closeWebSite(WebDriver driver) {
+    public void closeWebSite(WebDriver driver) {
         driver.quit();
     }
 }
