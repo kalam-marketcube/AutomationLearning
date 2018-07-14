@@ -7,7 +7,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BaseClass {
 
     public WebDriver openSeleniumEasySite() throws InterruptedException {
-        System.setProperty("webdriver.chrome.driver", "C://Users//subhani//Downloads//chromedriver.exe");
+       // System.setProperty("webdriver.chrome.driver", "C://Users//subhani//Downloads//chromedriver.exe");
+
+        System.setProperty("webdriver.chrome.driver", "/Users/sshaik02/Downloads/chromedriver");
+
 
         WebDriver driver = new ChromeDriver();
 
