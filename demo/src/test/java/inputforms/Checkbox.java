@@ -22,7 +22,7 @@ public class Checkbox extends BaseClass {
 
 
     private void singleCheckboxDemo(WebDriver driver) throws InterruptedException {
-        driver.findElement(By.xpath("//ul[@id='treemenu']//a[text()='inputforms.Checkbox Demo']")).click();
+        driver.findElement(By.xpath("//ul[@id='treemenu']//a[text()='Checkbox Demo']")).click();
         Thread.sleep(2000);
 
         driver.findElement(By.id("isAgeSelected")).click();
