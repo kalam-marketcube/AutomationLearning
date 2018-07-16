@@ -32,14 +32,21 @@ public class InputFormSubmit extends BaseClass {
         driver.findElement(By.xpath("//fieldset//div[5]//div[1]//div[1]//input[1]")).sendKeys("saroonagar");
         driver.findElement(By.xpath("//fieldset//div[6]//div[1]//div[1]//input[1]")).sendKeys("Hyderabad");
         //driver.findElement(By.xpath("//option[contains(text(),'Indiana')]")).click();
-         String country[] = {"Arizona","California","Connecticut","District of Columbia","Indiana"};
-           for(int col=0;col<country.length;col++) {
-                // inputFormFiled.selectByVisibleText(country[col]);
-               driver.findElement(By.xpath("//select[@class='form-control selectpicker']"));
-           }
+
+        //Selecting Items in a Multiple SELECT elements
+            driver.get("//select[@class='form-control selectpicker']");
+            /*Select fruits = new Select(driver.findElement(By.id("fruits")));
+            fruits.selectByVisibleText("Banana");
+            fruits.selectByIndex(1)*/
+         //String country[] = {"Arizona","California","Connecticut","District of Columbia","Indiana"};
+           //for(int col=0;col<country.length;col++) {
+             //  inputFormFiled.selectByVisibleText(country[col]);
+             // driver.findElement(By.xpath("//select[@class='form-control selectpicker']"));
+           //}
         driver.findElement(By.xpath("//fieldset//div[8]//div[1]//div[1]//input[1]")).sendKeys("50060");
         driver.findElement(By.xpath("//div[@class='form-group']//input[@class='form-control']")).sendKeys("SeleniumLearning");
-            for (int col = 1; col <= 2; col++) {
+            for (int col = 1; col <= 2; col++)
+            {
                 driver.findElement(By.xpath("//div[@class='col-md-4']//div["+ col +"]//label[1]")).click();
             }
         driver.findElement(By.xpath("//textarea[@class='form-control']")).sendKeys("Automation Learning Selenium");

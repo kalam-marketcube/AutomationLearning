@@ -6,7 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import java.util.Date;
-import java.util.List;
+
 
 public class DateExample extends BaseClass {
 
@@ -23,7 +23,7 @@ public class DateExample extends BaseClass {
         driver.findElement(By.xpath("//*[@id='sandbox-container1']/div/span/i")).click();
 
 
-        int todaysDate = new Date().getDate() -1;
+        int todaysDate = new Date().getDate() - 1;
 
         int totalRows = driver.findElements(By.xpath("//div[3]/div[1]/table/tbody/tr")).size();
 
@@ -34,16 +34,14 @@ public class DateExample extends BaseClass {
 
                 int date = Integer.parseInt(driver.findElement(By.xpath("//div[3]/div[1]/table/tbody/tr[" + noOfRows + "]/td[" + noOfCols + "]")).getText());
 
-                if(todaysDate == date){
+                if (todaysDate == date) {
                     driver.findElement(By.xpath("//div[3]/div[1]/table/tbody/tr[" + noOfRows + "]/td[" + noOfCols + "]")).click();
                     Thread.sleep(5000);
                     break;
                 }
                 break;
             }
-
         }
-
-        closeWebSite(driver);
+            closeWebSite(driver);
     }
 }
