@@ -22,7 +22,6 @@ public class DateExample extends BaseClass {
 
         driver.findElement(By.xpath("//*[@id='sandbox-container1']/div/span/i")).click();
 
-
         int todaysDate = new Date().getDate() - 1;
 
         int totalRows = driver.findElements(By.xpath("//div[3]/div[1]/table/tbody/tr")).size();
@@ -42,6 +41,6 @@ public class DateExample extends BaseClass {
                 break;
             }
         }
-            closeWebSite(driver);
+        closeWebSite(driver);
     }
 }
