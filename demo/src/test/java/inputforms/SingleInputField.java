@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pages.SingleFormDemoPage;
 
 
 public class SingleInputField extends BaseClass {
@@ -46,11 +47,11 @@ public class SingleInputField extends BaseClass {
 
     private void display(WebDriver driver, String msg) throws InterruptedException {
 
-        driver.findElement(By.id("user-message")).clear();
-        driver.findElement(By.id("user-message")).sendKeys(msg);
-        driver.findElement(By.xpath("//button[text()='Show Message']")).click();
+        SingleFormDemoPage singleFormDemoPage = new SingleFormDemoPage(driver);
+        singleFormDemoPage.clearAndEnterMessage(msg);
+        singleFormDemoPage.showMessageBtn().click();
+        String message = singleFormDemoPage.getShowMessageTxt();
 
-        String message = driver.findElement(By.id("display")).getText();
         Assert.assertEquals(msg, message);
 
         Thread.sleep(2000);

@@ -4,6 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import pages.SingleFormDemoPage;
 
 public class TwoInputFields extends BaseClass {
 
@@ -30,18 +31,27 @@ public class TwoInputFields extends BaseClass {
     }
 
     private void multipleValues(WebDriver driver, int value1, int value2, int expTotal) throws InterruptedException {
-        driver.findElement(By.id("sum1")).clear();
-        driver.findElement(By.id("sum1")).sendKeys(String.valueOf(value1));
 
-        driver.findElement(By.id("sum2")).clear();
-        driver.findElement(By.id("sum2")).sendKeys(String.valueOf(value2));
-
-        driver.findElement(By.xpath("//button[text()='Get Total']")).click();
-        Thread.sleep(3000);
-
-        String actTotal = driver.findElement(By.id("displayvalue")).getText();
-
+        SingleFormDemoPage singleFormDemoPage = new SingleFormDemoPage(driver);
+        singleFormDemoPage.aValue().sendKeys(String.valueOf(value1));
+        singleFormDemoPage.bValue().sendKeys(String.valueOf(value2));
+        singleFormDemoPage.getTotalBtn().click();
+        String actTotal = singleFormDemoPage.getDisplayValue().getText();
         Assert.assertEquals(Integer.parseInt(actTotal), expTotal);
+
+
+//        driver.findElement(By.id("sum1")).clear();
+//        driver.findElement(By.id("sum1")).sendKeys(String.valueOf(value1));
+//
+//        driver.findElement(By.id("sum2")).clear();
+//        driver.findElement(By.id("sum2")).sendKeys(String.valueOf(value2));
+
+//        driver.findElement(By.xpath("//button[text()='Get Total']")).click();
+//        Thread.sleep(3000);
+
+//        String actTotal = driver.findElement(By.id("displayvalue")).getText();
+
+//         Assert.assertEquals(Integer.parseInt(actTotal), expTotal);
     }
 
 }
