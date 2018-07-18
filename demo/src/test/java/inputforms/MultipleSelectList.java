@@ -5,39 +5,32 @@ import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class MultipleSelectList  extends BaseClass{
+public class MultipleSelectList extends BaseClass {
 
     @Test
 
     public void selectACountry() throws InterruptedException {
 
-        String country[] = { "California", "Florida", "New Jersey", "New York", "Ohio", "Texas", "Pennsylvania", "Washington"};
+        String country[] = {"California", "Florida", "New Jersey", "New York", "Ohio", "Texas", "Pennsylvania", "Washington"};
         WebDriver driver = openSeleniumEasySite();
 
         selectInputFormsFromLeftSide(driver);
 
-        driver.findElement(By.xpath( "//ul[@id='treemenu']//a[text()='Select Dropdown List']"));
+        for (int count = 0; count < country.length; count++) {
 
-        driver.findElement(By.xpath("//option[@value='California']")).click();
 
-        driver.findElement(By.xpath("//button[@id='printMe']")).click();
-        String firstSelected = driver.findElement(By.xpath("//p[@class='getall-selected']")).getText();
+            driver.findElement(By.xpath("//option[@value='" + country[count] + "']")).click();
 
-        Assert.assertTrue(firstSelected.contains(firstSelected));
+            driver.findElement(By.xpath("//button[@id='printMe']")).click();
+            String firstSelected = driver.findElement(By.xpath("//p[@class='getall-selected']")).getText();
 
-        //for(int count = 0; count < country.length; count++) {
-        // firstSelected.selectByVisibleText[country[count]];
+            Assert.assertTrue(firstSelected.contains(firstSelected));
 
-        //firstSelected.selectByVisibleText[country[count]];
-        //firstSelected.selectByIndex(1);
-        //System.out.println("First selected option is :" +firstSelected);
-        // break;
-        // }
-        Thread.sleep(3000);
+        }
+
+        Thread.sleep(2000);
         closeWebSite(driver);
 
     }
-
-
 
 }
