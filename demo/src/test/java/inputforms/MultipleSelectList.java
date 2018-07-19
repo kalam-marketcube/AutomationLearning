@@ -16,10 +16,12 @@ public class MultipleSelectList extends BaseClass {
 
         selectInputFormsFromLeftSide(driver);
 
+        driver.findElement(By.xpath("//ul[@id='treemenu']//a[text()='Select Dropdown List']")).click();
+
         for (int count = 0; count < country.length; count++) {
 
 
-            driver.findElement(By.xpath("//option[@value='" + country[count] + "']")).click();
+            driver.findElement(By.xpath("//option[@value='"+country[count]+"']")).click();
 
             driver.findElement(By.xpath("//button[@id='printMe']")).click();
             String firstSelected = driver.findElement(By.xpath("//p[@class='getall-selected']")).getText();
