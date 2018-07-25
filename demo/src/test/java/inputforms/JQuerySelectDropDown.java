@@ -3,10 +3,9 @@ package inputforms;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.Select;
 
 public class JQuerySelectDropDown extends  BaseClass {
-    
+
     @Test
     public void selectACountry() throws InterruptedException {
 
@@ -22,6 +21,24 @@ public class JQuerySelectDropDown extends  BaseClass {
             driver.findElement(By.xpath("//option[@value='"+country[count]+"']")).click();
 
             driver.findElement(By.id("select2-country-container")).click();
+
+            Thread.sleep(3000);
+
+
+           driver.findElement(By.xpath("//span[@class='select2-search select2-search--dropdown']//input[@type='search']")).sendKeys(country[count]);
+
+
+           driver.findElement(By.id("select2-country-container")).click();
+
+           Thread.sleep(3000);
+
+
+
+
+
+
+
+              Thread.sleep(2000);
         }
         Thread.sleep(3000);
         closeWebSite(driver);
